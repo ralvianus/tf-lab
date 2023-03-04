@@ -9,11 +9,11 @@ data "aws_key_pair" "key" {
 
 data "aws_ami" "ubuntu" {
   most_recent = true
-  owners      = ["099720109477"]
+  owners      = ["679593333241"]
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["bitnami-wordpress-5.8.1-22-r08-linux-debian-10-x86_64-hvm-ebs-frontend-rds-nami*"]
   }
 
   filter {
