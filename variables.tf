@@ -28,7 +28,7 @@ variable "vpc_cidr" {
 }
 
 variable "key_pair_name" {
-  description = "The name of the existing EC2 Key pair that will be used to authenticate to the Avi Controller"
+  description = "The name of the existing EC2 Key pair that will be used to authenticate"
   type        = string
   default     = "ralvianus-keypair"
 }
