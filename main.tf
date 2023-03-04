@@ -94,7 +94,7 @@ resource "aws_instance" "web_server" {
   vpc_security_group_ids = [aws_security_group.ssh_sg.id]
 
   # the public SSH key
-  key_name = data.aws_key_pair.key.key_name
+  key_name = var.key_pair_name
 
   tags = {
     Name = "${var.name_prefix}-web-${count.index}"
