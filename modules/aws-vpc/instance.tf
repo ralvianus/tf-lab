@@ -1,5 +1,5 @@
 resource "aws_instance" "web_server" {
-  count = 1
+  count = var.instance_count
   ami   = "ami-09f238ada65bd0563"
   instance_type = "t3.micro"
 
