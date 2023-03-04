@@ -38,7 +38,7 @@ resource "aws_subnet" "public" {
 
   vpc_id                  = aws_vpc.default.id
   cidr_block              = var.public_subnet_cidr_blocks[count.index]
-  availability_zone       = data.aws_availability_zones.availabe.names[count.index]
+  availability_zone       = data.aws_availability_zones.azs.names[count.index]
   map_public_ip_on_launch = true
   tags = {
     Name = "${var.name_prefix}-subnet-${count.index}"
@@ -47,7 +47,7 @@ resource "aws_subnet" "public" {
 
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.default.id
-  route = {
+  route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.default.id
   }
@@ -88,13 +88,13 @@ resource "aws_instance" "web_server" {
   instance_type = "t3.micro"
 
   # the VPC subnet
-  subnet_id = aws_subnet.public.id
+  subnet_id = aws_subnet.public[count.index].id
 
   # the security group
   vpc_security_group_ids = [aws_security_group.ssh_sg.id]
 
   # the public SSH key
-  key_name = aws_key_pair.key.key_name
+  key_name = data.aws_key_pair.key.key_name
 
   tags = {
     Name = "${var.name_prefix}-web-${count.index}"
@@ -102,5 +102,5 @@ resource "aws_instance" "web_server" {
 }
 
 output "ip" {
-  value = aws_instance.web_server.public_ip
+  value = aws_instance.web_server[*].public_ip
 }
