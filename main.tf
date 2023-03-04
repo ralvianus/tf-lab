@@ -115,7 +115,3 @@ resource "aws_instance" "web_server" {
     Name = "${var.name_prefix}-web-${count.index}"
   }
 }
-
-output "ip" {
-  value = aws_instance.web_server[*].public_ip
-}
