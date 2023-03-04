@@ -22,6 +22,6 @@ module "aws_vpc" {
 
   name_prefix    = var.name_prefix
   key_pair_name  = var.key_pair_name
-  instance_count = 2
+  instance_count = var.instance_count
 }
 
