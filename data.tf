@@ -9,11 +9,11 @@ data "aws_key_pair" "key" {
 
 data "aws_ami" "ubuntu" {
   most_recent = true
-  owners      = ["679593333241"]
+  owners      = ["aws-marketplace"]
 
   filter {
     name   = "name"
-    values = ["1093-a-20ff594f-0f6a-4107-9040-561845b36647-22051-20ff594f-0f6a-4107-9040-561845b36647"]
+    values = ["2022-06-01T11-22-27.662Z-cbdef1bf-8e5a-4a36-acdc-ca2b59bd3702"]
   }
 
   filter {
