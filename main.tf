@@ -18,6 +18,9 @@ provider "aws" {
 }
 
 module "aws_vpc" {
+  source = "./modules/aws-vpc"
 
+  name_prefix    = var.name_prefix
+  key_pair_name  = var.key_pair_name
 }
 
