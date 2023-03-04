@@ -100,7 +100,6 @@ resource "aws_security_group" "ssh_sg" {
 resource "aws_instance" "web_server" {
   count = 1
   ami   = "ami-09f238ada65bd0563"
-  #ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
 
   # the VPC subnet
