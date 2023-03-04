@@ -13,7 +13,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["bitnami-wordpress-5.8.1-22-r08-linux-debian-10-x86_64-hvm-ebs-frontend-rds-nami*"]
+    values = ["1093-a-20ff594f-0f6a-4107-9040-561845b36647-22051-20ff594f-0f6a-4107-9040-561845b36647"]
   }
 
   filter {

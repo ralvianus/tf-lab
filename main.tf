@@ -111,15 +111,6 @@ resource "aws_instance" "web_server" {
   # the public SSH key
   key_name = var.key_pair_name
 
-  # Installing apache
-  user_data = <<EOF
-  #!/bin/bash
-  apt-get update -y
-  apt-get install apache2 -y
-  service apache2 start
-
-  EOF
-
   tags = {
     Name = "${var.name_prefix}-web-${count.index}"
   }
